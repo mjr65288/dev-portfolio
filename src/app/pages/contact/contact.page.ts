@@ -96,12 +96,6 @@ export class ContactPage {
 
       if (ok) {
         this.form.reset();
-        this.messages.add({
-          severity: 'success',
-          summary: 'Message Sent!',
-          detail: 'Thank you for reaching out. I\'ll get back to you soon.',
-          life: 5000
-        });
       } else {
         this.messages.add({
           severity: 'error',
