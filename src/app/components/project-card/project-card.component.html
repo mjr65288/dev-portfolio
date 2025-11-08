@@ -1,6 +1,6 @@
-<article class="card p-3">
+<article class="card p-3 project-card">
   @if (project.image) {
-  <img [src]="project.image" alt="{{ project.title }} screenshot"
+  <img [src]="project.image" [alt]="'Screenshot of ' + project.title + ' interface'"
     style="width:100%; border-radius: 12px; margin-bottom: 1rem;" />
   }
   <h3 style="margin:0 0 .5rem 0">{{ project.title }}</h3>
@@ -9,7 +9,7 @@
 
   <div class="flex gap-2 flex-wrap mb-3">
     @for (t of project.tags; track t) {
-    <p-tag [value]="t"></p-tag>
+    <p-tag [value]="t" [severity]="$any(getTagSeverity(t))" [style]="getTagStyle(t)"></p-tag>
     }
   </div>
 

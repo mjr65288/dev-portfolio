@@ -26,6 +26,70 @@ body { margin: 0; font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto
 .section { padding: 3rem 0; }
 .section-title { font-size: clamp(1.5rem, 2vw + 1rem, 2.25rem); margin-bottom: 1rem; color: var(--text); }
 .section-sub { color: var(--muted); margin-bottom: 2rem; }
-.card { background: var(--card); border-radius: 16px; padding: 1.25rem; box-shadow: 0 10px 24px rgba(0,0,0,0.25); }
+.card { background: var(--card); border-radius: 16px; padding: 1.25rem; box-shadow: 0 10px 24px rgba(0,0,0,0.25); transition: transform 0.3s ease, box-shadow 0.3s ease; }
+.card:hover { transform: scale(1.02); box-shadow: 0 16px 32px rgba(0,0,0,0.35); }
+.project-card { cursor: pointer; }
 .link { color: var(--brand); text-decoration: none; }
 .link:hover { text-decoration: underline; }
+
+/* Rotating text animation */
+.rotating-text {
+  display: inline-block;
+  position: relative;
+}
+
+.rotating-text[data-index] {
+  animation: fadeInOut 0.6s ease-in-out;
+}
+
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* View All Projects button */
+.view-all-btn {
+  display: inline-block;
+  padding: 0.75rem 2rem;
+  background: var(--brand);
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 500;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.view-all-btn:hover {
+  background: #5a99e6; /* Slightly darker brand color */
+  transform: translateY(-2px);
+  text-decoration: none;
+}
+
+/* Contact CTA */
+.contact-cta {
+  padding: 3rem 0;
+}
+
+/* Responsive breakpoints */
+@media (min-width: 768px) {
+  .md\:flex-row {
+    flex-direction: row !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .hero-header {
+    flex-direction: column;
+    align-items: flex-start !important;
+  }
+
+  .container {
+    padding: 1.5rem;
+  }
+}
