@@ -1,0 +1,25 @@
+<article class="card p-3">
+  @if (project.image) {
+  <img [src]="project.image" alt="{{ project.title }} screenshot"
+    style="width:100%; border-radius: 12px; margin-bottom: 1rem;" />
+  }
+  <h3 style="margin:0 0 .5rem 0">{{ project.title }}</h3>
+  <p style="color:var(--muted); margin:0 0 1rem 0;">{{ project.description }}</p>
+
+
+  <div class="flex gap-2 flex-wrap mb-3">
+    @for (t of project.tags; track t) {
+    <p-tag [value]="t"></p-tag>
+    }
+  </div>
+
+
+  <div class="flex gap-3">
+    @if (project.demo) {
+    <a class="link" [href]="project.demo" target="_blank" rel="noopener">Live Demo</a>
+    }
+    @if (project.repo) {
+    <a class="link" [href]="project.repo" target="_blank" rel="noopener">Source</a>
+    }
+  </div>
+</article>

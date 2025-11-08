@@ -1,0 +1,50 @@
+{
+  "name": "Your Name",
+  "role": "Software Developer",
+  "location": "San Jose, CA",
+  "socials": [
+  { "label": "GitHub", "url": "https://github.com/yourname", "icon": "pi pi-github" },
+  { "label": "LinkedIn", "url": "https://linkedin.com/in/yourname", "icon": "pi pi-linkedin" }
+  ],
+  "skills": [
+  { "name": "Angular", "level": "expert" },
+  { "name": "TypeScript", "level": "expert" },
+  { "name": "Node.js", "level": "advanced" },
+  { "name": "RxJS", "level": "advanced" }
+  ],
+  "projects": [
+  {
+  "title": "Realtime Dashboard",
+  "description": "Live metrics with WebSockets and RxJS.",
+  "tags": ["Angular", "RxJS", "WebSocket"],
+  "repo": "https://github.com/yourname/realtime-dashboard",
+  "demo": "https://realtime.example.com",
+  "image": "assets/RGR-Desktop.png"
+  },
+  {
+  "title": "E‑commerce PWA",
+  "description": "E-commerce website with payments.",
+  "tags": ["Next.js", "Tailwind", "Stripe"],
+  "repo": "https://github.com/mjr65288/rgr-ecommerce",
+  "demo": "https://rgr-ecommerce.vercel.app/",
+  "image": "assets/images/RGR-Desktop.png"
+  }
+  ],
+  "experience": [
+  {
+  "company": "Acme Corp",
+  "role": "Senior Frontend Engineer",
+  "start": "2023-04",
+  "end": "2025-10",
+  "bullets": [
+  "Led migration to Angular standalone APIs.",
+  "Improved CLS/LCP by 35% with image optimization.",
+  "Mentored 4 engineers on RxJS patterns."
+  ]
+  }
+  ],
+  "about": {
+  "headline": "I build fast, accessible web apps.",
+  "summary": "I’m a software developer focused on Angular, performance, and clean architecture. I love crafting DX tooling and scalable UI systems."
+  }
+  }

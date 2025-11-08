@@ -1,0 +1,20 @@
+<!--
+This section creates the application shell's top navigation bar and main content area.
+
+- <p-menubar>: PrimeNG's Menubar component, used as the site-wide navigation menu.
+  - [model]="items": The menu items to display; they're provided as a property in the AppComponent TypeScript class.
+  - class="p-2": Adds padding for visual spacing.
+  - style="border: none; background: transparent;": Makes the menu visually blend with the page (no border/background).
+  - <ng-template pTemplate="start">: Content to display at the start (left) of the menu bar.
+    - <a routerLink="/">: Clickable app/site logo or text, routing to the homepage on click.
+      - class="link" style="font-weight:700;": Custom styling for logo.
+      - &lt;YourName/&gt;: Placeholder text for your site/name.
+
+- <router-outlet />: Renders route-matched components in the main view area below the menu.
+-->
+<p-menubar [model]="items" class="p-2" style="border: none; background: transparent;">
+  <ng-template pTemplate="start">
+    <a routerLink="/" class="link" style="font-weight:700;">&lt;YourName/&gt;</a>
+  </ng-template>
+</p-menubar>
+<router-outlet />

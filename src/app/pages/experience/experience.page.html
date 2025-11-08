@@ -1,0 +1,8 @@
+<div class="container">
+  <h2 class="section-title">Experience</h2>
+  <div class="flex flex-column gap-4">
+    @for (e of (data$ | async)?.experience; track e.company) {
+    <app-timeline-item [company]="e.company" [role]="e.role" [start]="e.start" [end]="e.end" [bullets]="e.bullets" />
+    }
+  </div>
+</div>

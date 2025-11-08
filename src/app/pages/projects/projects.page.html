@@ -1,0 +1,8 @@
+<div class="container">
+  <h2 class="section-title">Projects</h2>
+  <div class="grid" style="gap:1.25rem; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+    @for (p of (data$ | async)?.projects; track p.title) {
+    <app-project-card [project]="p" />
+    }
+  </div>
+</div>
