@@ -1,5 +1,74 @@
-<div class="container">
-  <h2 class="section-title">About</h2>
-  <h3>{{ (data$ | async)?.about?.headline }}</h3>
-  <p class="section-sub" style="max-width: 65ch;">{{ (data$ | async)?.about?.summary }}</p>
-  </div>
+@if (data$ | async; as data) {
+  <section class="container">
+    <h2 class="section-title">About</h2>
+
+    <h3 class="mb-3">{{ data.about.headline }}</h3>
+
+    <p class="section-sub max-w-65ch mb-4">
+      {{ data.about.summary }}
+    </p>
+
+    @if (data.about.bullets?.length) {
+      <ul class="list-none p-0 m-0 max-w-65ch mb-4" aria-label="Core skills and practices">
+        @for (bullet of data.about.bullets; track $index) {
+          <li class="flex align-items-start gap-2 mb-2">
+            <i class="pi pi-star-fill text-brand mt-1" aria-hidden="true"></i>
+            <span>{{ bullet }}</span>
+          </li>
+        }
+      </ul>
+    }
+
+    @if (data.about.closing) {
+      <p class="section-sub max-w-65ch mb-4">
+        {{ data.about.closing }}
+      </p>
+    }
+
+    <!-- Contact Section -->
+    @if (data.contact) {
+      <div class="contact-section mb-4" style="max-width: 65ch;">
+        <h3 class="mb-3" style="font-size: 1.5rem;">Get in Touch</h3>
+        <div class="flex flex-column gap-2">
+          @if (data.contact.email) {
+            <div class="flex align-items-center gap-2">
+              <i class="pi pi-envelope text-brand"></i>
+              <a [href]="'mailto:' + data.contact.email" class="link">{{ data.contact.email }}</a>
+            </div>
+          }
+          @if (data.contact.phone) {
+            <div class="flex align-items-center gap-2">
+              <i class="pi pi-phone text-brand"></i>
+              <a [href]="'tel:' + data.contact.phone" class="link">{{ data.contact.phone }}</a>
+            </div>
+          }
+        </div>
+      </div>
+    }
+
+    <!-- Optional CTA row -->
+    <div class="flex gap-2 flex-wrap">
+      <a
+        routerLink="/contact"
+        class="p-button p-button-rounded"
+        style="text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem;"
+      >
+        <i class="pi pi-send"></i>
+        <span>Let's connect</span>
+      </a>
+
+      <!-- Download Resume button -->
+      @if (data.contact?.resume) {
+        <a
+          [href]="data.contact!.resume"
+          class="p-button p-button-rounded p-button-outlined"
+          style="text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem;"
+          download
+        >
+          <i class="pi pi-download"></i>
+          <span>Download Résumé</span>
+        </a>
+      }
+    </div>
+  </section>
+}

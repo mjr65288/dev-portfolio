@@ -38,19 +38,19 @@
   ],
   "projects": [
     {
-      "title": "Realtime Dashboard",
-      "description": "Live metrics with WebSockets and RxJS.",
+      "title": "Portfolio Website",
+      "description": "My portfolio website built with Angular",
       "tags": [
         "Angular",
         "RxJS",
-        "WebSocket"
+        "PrimeNG"
       ],
-      "repo": "https://github.com/yourname/realtime-dashboard",
-      "demo": "https://realtime.example.com",
-      "image": "assets/RGR-Desktop.png"
+      "repo": "https://github.com/mjr65288/portfolio",
+      "demo": "https://manuelrodriguez.com",
+      "image": "assets/images/portfolio.png"
     },
     {
-      "title": "E‑commerce PWA",
+      "title": "RGR E-commerce",
       "description": "E-commerce website with payments.",
       "tags": [
         "Next.js",
@@ -76,7 +76,19 @@
     }
   ],
   "about": {
-    "headline": "I build fast, accessible web apps.",
-    "summary": "I’m a software developer focused on Angular, performance, and clean architecture. I love crafting DX tooling and scalable UI systems."
+  "headline": "I build performant, scalable web applications.",
+  "summary": "I'm a versatile Software Engineer skilled in both Angular and React ecosystems — particularly Angular 19 with PrimeNG and React with Next.js. My work centers on clean architecture, type safety, and delivering fast, accessible user interfaces powered by modern frameworks and reactive design patterns.",
+  "bullets": [
+    "Frontend: Angular, Next.js, React, RxJS, PrimeNG, Tailwind, PrimeFlex",
+    "Backend: Node.js, Express, REST APIs, MongoDB",
+    "DevOps: Docker, GitHub Actions, Render / Vercel",
+    "Practices: SOLID, Clean Architecture, CI/CD, Accessibility"
+  ],
+  "closing": "I'm passionate about bridging design and engineering through component-driven development, mentoring developers, and optimizing performance across frameworks. I'm open to collaborations or full-time roles where scalable architecture and developer experience matter most."
+},
+  "contact": {
+    "email": "manuel.jesus.rodrguez.1086@gmail.com",
+    "phone": "+1 (818) 582-0904",
+    "resume": "assets/Manuel_Rodriguez_React_Angular_Resume.pdf"
   }
 }

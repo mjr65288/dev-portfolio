@@ -1,12 +1,14 @@
 import { Component, inject } from '@angular/core';
 import { AsyncPipe } from '@angular/common';
+import { RouterLink } from '@angular/router';
+import { Button } from 'primeng/button';
 import { ContentService } from '../../services/content.service';
 
 
 @Component({
 standalone: true,
 selector: 'app-about',
-imports: [AsyncPipe],
+imports: [AsyncPipe, RouterLink, Button],
 templateUrl: './about.page.html',
 })
 export class AboutPage {
