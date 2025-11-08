@@ -1,5 +1,96 @@
-<div class="container">
-  <h2 class="section-title">Contact</h2>
-  <p class="section-sub">Want to work together or just say hi?</p>
-  <a class="link" href="mailto:hello@yourdomain.com">hello@yourdomain.com</a>
-</div>
+<section class="container" aria-labelledby="contact-heading">
+  <h2 id="contact-heading" class="section-title">Contact</h2>
+
+  <p class="section-sub max-w-65ch">
+    Want to work together or just say hi?
+  </p>
+
+  @if (data$ | async; as data) {
+    <!-- quick actions -->
+    @if (data.contact?.email; as email) {
+      <div class="flex gap-2 flex-wrap mb-3">
+        <a class="view-all-btn" [href]="'mailto:' + email">Email me</a>
+        <button
+          type="button"
+          class="p-button p-button-rounded p-button-outlined"
+          style="display: inline-flex; align-items: center; gap: 0.5rem;"
+          (click)="copyEmail(email)"
+        >
+          <i class="pi pi-copy"></i>
+          <span>Copy email</span>
+        </button>
+      </div>
+    }
+  }
+
+  <!-- contact form -->
+  <form [formGroup]="form" class="grid" style="gap:1rem; max-width: 720px;">
+    <!-- honeypot (hidden) -->
+    <input type="text" formControlName="website" aria-hidden="true" tabindex="-1"
+           style="position:absolute; left:-9999px; width:1px; height:1px; opacity:0;" />
+
+    <div class="grid" style="gap:1rem; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));">
+      <div>
+        <label for="name" class="mb-1 block">Name</label>
+        <input id="name" type="text" pInputText formControlName="name" placeholder="Your name" class="w-full" />
+        @if (form.controls.name.touched && form.controls.name.invalid) {
+          <small style="color:#f87171">Please enter at least 2 characters.</small>
+        }
+      </div>
+
+      <div>
+        <label for="email" class="mb-1 block">Email</label>
+        <input id="email" type="email" pInputText formControlName="email" placeholder="you@example.com" class="w-full" />
+        @if (form.controls.email.touched && form.controls.email.invalid) {
+          <small style="color:#f87171">Please enter a valid email.</small>
+        }
+      </div>
+    </div>
+
+    <div>
+      <label for="subject" class="mb-1 block">Subject (optional)</label>
+      <input id="subject" type="text" pInputText formControlName="subject" placeholder="How can I help?" class="w-full" />
+    </div>
+
+    <div>
+      <label for="message" class="mb-1 block">Message</label>
+      <textarea id="message" pInputTextarea rows="6" formControlName="message" placeholder="Write your message…" class="w-full"></textarea>
+      @if (form.controls.message.touched && form.controls.message.invalid) {
+        <small style="color:#f87171">Please write at least 10 characters.</small>
+      }
+    </div>
+
+    <div class="flex gap-2">
+      <button
+        type="button"
+        class="p-button p-button-rounded"
+        style="display: inline-flex; align-items: center; gap: 0.5rem;"
+        [disabled]="isSubmitting() || form.invalid"
+        (click)="onSubmit(recipientEmail())"
+      >
+        @if (isSubmitting()) {
+          <i class="pi pi-spin pi-spinner"></i>
+          <span>Sending...</span>
+        } @else {
+          <i class="pi pi-send"></i>
+          <span>Send Message</span>
+        }
+      </button>
+
+      <!-- Fallback mailto option -->
+      <button
+        type="button"
+        class="p-button p-button-rounded p-button-outlined"
+        style="display: inline-flex; align-items: center; gap: 0.5rem;"
+        [disabled]="isSubmitting()"
+        (click)="submitViaMailto(recipientEmail())"
+        title="Open email client instead"
+      >
+        <i class="pi pi-envelope"></i>
+        <span>Use Email Client</span>
+      </button>
+    </div>
+  </form>
+
+  <p-toast></p-toast>
+</section>
