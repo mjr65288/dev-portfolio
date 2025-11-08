@@ -64,28 +64,44 @@
   ],
   "experience": [
     {
-      "company": "Acme Corp",
-      "role": "Senior Frontend Engineer",
-      "start": "2023-04",
-      "end": "2025-10",
+      "company": "Canoga Perkins",
+      "role": "Full Stack Engineer",
+      "start": "2022-04",
+      "end": "present",
       "bullets": [
-        "Led migration to Angular standalone APIs.",
-        "Improved CLS/LCP by 35% with image optimization.",
-        "Mentored 4 engineers on RxJS patterns."
+        "Led the architectural design and implementation of the new Network Management System (NMS) using Next.js.",
+        "Integrated Redux Toolkit for global state management and Redux-Saga to handle complex asynchronous workflows.",
+        "Developed backend REST endpoints using Spring Boot to enable switch configuration reset and preserve-reset operations.",
+        "Developed and maintained the company’s Angular-based NMS, improving modularity and overall maintainability.",
+        "Implemented a D3.js-powered visualizer to display virtual circuit metrics and topologies in real time.",
+        "Collaborated closely with backend engineers to optimize API contracts and improve system scalability."
+      ]
+    },
+    {
+      "company": "J.D. Power",
+      "role": "Full Stack Engineer",
+      "start": "2015-10",
+      "end": "2022-04",
+      "bullets": [
+        "Developed and maintained enterprise web applications using Spring Boot and Angular.",
+        "Implemented RESTful APIs with JPA and Hibernate for secure, efficient data access.",
+        "Built custom MicroStrategy plugins and dashboards to extend internal analytics capabilities.",
+        "Integrated Firebase Cloud Messaging to deliver mobile push notifications across key products.",
+        "Automated UI and regression testing with Selenium and TestNG, reducing QA turnaround time by 80%."
       ]
     }
   ],
   "about": {
-  "headline": "I build performant, scalable web applications.",
-  "summary": "I'm a versatile Software Engineer skilled in both Angular and React ecosystems — particularly Angular 19 with PrimeNG and React with Next.js. My work centers on clean architecture, type safety, and delivering fast, accessible user interfaces powered by modern frameworks and reactive design patterns.",
-  "bullets": [
-    "Frontend: Angular, Next.js, React, RxJS, PrimeNG, Tailwind, PrimeFlex",
-    "Backend: Node.js, Express, REST APIs, MongoDB",
-    "DevOps: Docker, GitHub Actions, Render / Vercel",
-    "Practices: SOLID, Clean Architecture, CI/CD, Accessibility"
-  ],
-  "closing": "I'm passionate about bridging design and engineering through component-driven development, mentoring developers, and optimizing performance across frameworks. I'm open to collaborations or full-time roles where scalable architecture and developer experience matter most."
-},
+    "headline": "I build performant, scalable web applications.",
+    "summary": "I'm a versatile Software Engineer skilled in both Angular and React ecosystems — particularly Angular 19 with PrimeNG and React with Next.js. My work centers on clean architecture, type safety, and delivering fast, accessible user interfaces powered by modern frameworks and reactive design patterns.",
+    "bullets": [
+      "Frontend: Angular, Next.js, React, RxJS, PrimeNG, Tailwind, PrimeFlex",
+      "Backend: Spring Boot, Node.js, Express, REST APIs, MongoDB",
+      "DevOps: Docker, GitHub Actions, Render / Vercel",
+      "Practices: SOLID, Clean Architecture, CI/CD, Accessibility"
+    ],
+    "closing": "I'm passionate about bridging design and engineering through component-driven development, mentoring developers, and optimizing performance across frameworks. I'm open to collaborations or full-time roles where scalable architecture and developer experience matter most."
+  },
   "contact": {
     "email": "manuel.jesus.rodrguez.1086@gmail.com",
     "phone": "+1 (818) 582-0904",
