@@ -1,8 +1,51 @@
-<div class="container">
-  <h2 class="section-title">Experience</h2>
-  <div class="flex flex-column gap-4">
-    @for (e of (data$ | async)?.experience; track e.company) {
-    <app-timeline-item [company]="e.company" [role]="e.role" [start]="e.start" [end]="e.end" [bullets]="e.bullets" />
+@if (data$ | async; as data) {
+  <section class="container" aria-labelledby="exp-heading">
+    <h2 id="exp-heading" class="section-title">Experience</h2>
+
+    <!-- Optional summary metrics bar (hide if not needed) -->
+    <!-- <div class="flex gap-3 mb-3">
+      <span class="text-brand">6+ yrs</span>
+      <span class="text-brand">24 projects</span>
+    </div> -->
+
+    <div class="flex flex-column gap-4">
+      @for (e of data.experience; track e.company) {
+        <app-timeline-item
+          [company]="e.company"
+          [role]="e.role"
+          [start]="e.start"
+          [end]="e.end"
+          [location]="e.location"
+          [url]="e.url"
+          [tech]="e.tech"
+          [bullets]="e.bullets"
+        />
+      }
+    </div>
+
+    <!-- Optional CTA row -->
+    @if (data.contact) {
+      <div class="flex gap-2 flex-wrap mt-4">
+        <a
+          routerLink="/contact"
+          class="p-button p-button-rounded"
+          style="text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem;"
+        >
+          <i class="pi pi-send"></i>
+          <span>Let's connect</span>
+        </a>
+        @if (data.contact.resume) {
+          <a
+            [href]="data.contact.resume"
+            class="p-button p-button-rounded p-button-outlined"
+            style="text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem;"
+            download
+          >
+            <i class="pi pi-download"></i>
+            <span>Download Résumé</span>
+          </a>
+        }
+      </div>
     }
-  </div>
-</div>
+  </section>
+}

@@ -65,29 +65,36 @@
   "experience": [
     {
       "company": "Canoga Perkins",
-      "role": "Full Stack Engineer",
-      "start": "2022-04",
-      "end": "present",
+      "role": "Software Engineer",
+      "start": "2023-05",
+      "end": "2025-10",
+      "location": "Chatsworth, CA (Hybrid)",
+      "url": "https://www.canogaperkins.net",
+      "tech": ["Next.js", "Angular", "RxJS", "Redux Toolkit", "Redux-Saga", "Spring Boot", "D3.js"],
       "bullets": [
-        "Led the architectural design and implementation of the new Network Management System (NMS) using Next.js.",
+        "Led the architecture and implementation of the new Network Management System (NMS) using Next.js and TypeScript.",
         "Integrated Redux Toolkit for global state management and Redux-Saga to handle complex asynchronous workflows.",
-        "Developed backend REST endpoints using Spring Boot to enable switch configuration reset and preserve-reset operations.",
+        "Developed backend REST APIs using Spring Boot to allow safe reset and preserve-reset operations for switch configurations.",
         "Developed and maintained the company’s Angular-based NMS, improving modularity and overall maintainability.",
         "Implemented a D3.js-powered visualizer to display virtual circuit metrics and topologies in real time.",
-        "Collaborated closely with backend engineers to optimize API contracts and improve system scalability."
+        "Collaborated closely with backend engineers to optimize API contracts and improve system scalability.",
+        "Added an export feature enabling users to download network topology diagrams as PNG images for documentation and reporting."
       ]
     },
     {
       "company": "J.D. Power",
-      "role": "Full Stack Engineer",
-      "start": "2015-10",
-      "end": "2022-04",
+      "role": "Software Engineer",
+      "start": "2021-01",
+      "end": "2023-04",
+      "location": "Westlake Village, CA (Hybrid)",
+      "url": "hhttps://www.jdpower.com",
+      "tech": ["Angular", "Spring Boot", "Hibernate", "MicroStrategy", "Selenium", "TestNG", "Firebase"],
       "bullets": [
         "Developed and maintained enterprise web applications using Spring Boot and Angular.",
         "Implemented RESTful APIs with JPA and Hibernate for secure, efficient data access.",
         "Built custom MicroStrategy plugins and dashboards to extend internal analytics capabilities.",
         "Integrated Firebase Cloud Messaging to deliver mobile push notifications across key products.",
-        "Automated UI and regression testing with Selenium and TestNG, reducing QA turnaround time by 80%."
+        "Automated UI and regression testing with Selenium and TestNG, reducing QA turnaround time by 40%."
       ]
     }
   ],

@@ -1,12 +1,41 @@
-<div class="flex gap-3">
+<article class="flex gap-3">
   <div style="width:10px; background: var(--brand); border-radius: 8px;"></div>
-  <div>
-    <h3 style="margin:0 0 .25rem 0">{{ role }} — {{ company }}</h3>
-    <small style="color:var(--muted)">{{ start }} – {{ end || 'Present' }}</small>
-    <ul class="mt-2">
-      @for (b of bullets; track $index) {
-      <li style="margin-bottom:.25rem;">{{ b }}</li>
+
+  <div class="w-full">
+    <header class="flex align-items-center justify-content-between flex-wrap gap-2">
+      <div>
+        <h3 class="m-0">{{ role }} —
+          @if (url) {
+          <a class="link" [href]="url" target="_blank" rel="noopener">{{ company }}</a>
+          } @else {
+          {{ company }}
+          }
+        </h3>
+        <small style="color:var(--muted)">
+          {{ formatDate(start) }} – {{ end ? formatDate(end) : 'Present' }}
+          @if (location) { • {{ location }} }
+        </small>
+      </div>
+    </header>
+
+    @if (tech && tech.length > 0) {
+    <div class="flex flex-wrap gap-2 mt-2">
+      @for (t of tech; track t) {
+      <p-tag [value]="t" severity="contrast"></p-tag>
+      }
+    </div>
+    }
+
+    @if (bullets && bullets.length > 0) {
+    <ul class="list-none p-0 m-0 mt-3">
+      @for (b of bullets; track b) {
+      <li class="flex align-items-start gap-2 mb-2">
+        <i class="pi pi-circle-fill" style="font-size:.5rem; color: var(--brand); margin-top:.5rem"
+          aria-hidden="true"></i>
+        <span>{{ b }}</span>
+      </li>
       }
     </ul>
+    }
   </div>
-</div>
+</article>
