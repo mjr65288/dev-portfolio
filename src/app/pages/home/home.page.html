@@ -1,21 +1,44 @@
 @if (data$ | async; as data) {
   <div class="container pt-8">
-    <header class="hero-header flex align-items-center justify-content-between mb-4 flex-column md:flex-row gap-3">
-      <div>
-        <h1 style="margin:0">Hi, I'm {{ data.name }}</h1>
-        <p class="section-sub" style="margin:.5rem 0 0 0">
+    <header class="hero-header flex align-items-center justify-content-between mb-6 flex-column md:flex-row gap-3">
+      <div class="hero-content">
+        <h1 class="hero-title">Hi, I'm {{ data.name }}</h1>
+        <p class="hero-subtitle">
           <span class="rotating-text" [attr.data-index]="currentPhraseIndex">{{ currentPhrase }}</span> ✦ {{ data.location }}
         </p>
+        <p class="hero-description max-w-65ch mt-3">
+          {{ data.about.summary || 'Software Engineer passionate about building exceptional web experiences.' }}
+        </p>
       </div>
-      <div class="flex gap-3 align-items-center">
+      <div class="flex gap-3 align-items-center hero-socials">
         @for (s of data.socials; track s.url) {
-        <a class="link" [href]="s.url" target="_blank" rel="noopener">
+        <a class="social-link" [href]="s.url" target="_blank" rel="noopener" [attr.aria-label]="s.label">
           <i class="pi" [ngClass]="s.icon"></i>
           <span class="ml-2">{{ s.label }}</span>
         </a>
         }
       </div>
     </header>
+
+    <!-- Stats Section -->
+    <div class="stats-grid mb-6">
+      <div class="stat-card">
+        <div class="stat-number">{{ calculateYearsExperience() }}+</div>
+        <div class="stat-label">Years Experience</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">{{ data.projects.length || 0 }}</div>
+        <div class="stat-label">Personal Projects</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">{{ data.experience.length || 0 }}</div>
+        <div class="stat-label">Companies</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">{{ data.skills.length || 0 }}</div>
+        <div class="stat-label">Technologies</div>
+      </div>
+    </div>
 
 
     <!-- Skills Highlight -->

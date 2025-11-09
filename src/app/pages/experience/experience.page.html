@@ -1,15 +1,30 @@
 @if (data$ | async; as data) {
-  <section class="container" aria-labelledby="exp-heading">
-    <h2 id="exp-heading" class="section-title">Experience</h2>
+  <section class="container experience-page" aria-labelledby="exp-heading">
+    <div class="experience-header mb-5">
+      <h2 id="exp-heading" class="section-title mb-2">Experience</h2>
+      <p class="section-sub max-w-65ch mb-4">
+        My professional journey building scalable applications and leading technical initiatives.
+      </p>
 
-    <!-- Optional summary metrics bar (hide if not needed) -->
-    <!-- <div class="flex gap-3 mb-3">
-      <span class="text-brand">6+ yrs</span>
-      <span class="text-brand">24 projects</span>
-    </div> -->
+      <!-- Experience Stats -->
+      <div class="experience-stats mb-5">
+        <div class="stat-item">
+          <div class="stat-value">{{ calculateYearsExperience(data.experience) }}+</div>
+          <div class="stat-desc">Years Experience</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value">{{ data.experience.length || 0 }}</div>
+          <div class="stat-desc">Companies</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value">{{ getTotalProjects(data.experience) }}+</div>
+          <div class="stat-desc">Projects Delivered</div>
+        </div>
+      </div>
+    </div>
 
-    <div class="flex flex-column gap-4">
-      @for (e of data.experience; track e.company) {
+    <div class="timeline-container">
+      @for (e of data.experience; track e.company; let i = $index) {
         <app-timeline-item
           [company]="e.company"
           [role]="e.role"
@@ -23,28 +38,25 @@
       }
     </div>
 
-    <!-- Optional CTA row -->
+    <!-- CTA Section -->
     @if (data.contact) {
-      <div class="flex gap-2 flex-wrap mt-4">
-        <a
-          routerLink="/contact"
-          class="p-button p-button-rounded"
-          style="text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem;"
-        >
-          <i class="pi pi-send"></i>
-          <span>Let's connect</span>
-        </a>
-        @if (data.contact.resume) {
-          <a
-            [href]="data.contact.resume"
-            class="p-button p-button-rounded p-button-outlined"
-            style="text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem;"
-            download
-          >
-            <i class="pi pi-download"></i>
-            <span>Download Résumé</span>
-          </a>
-        }
+      <div class="experience-cta mt-6">
+        <div class="cta-content">
+          <h3 class="mb-2">Interested in working together, or just saying hi?</h3>
+          <p class="section-sub mb-4">Let's discuss how I can contribute to your team.</p>
+          <div class="flex gap-2 flex-wrap">
+            <a routerLink="/contact" class="btn-primary">
+              <i class="pi pi-send"></i>
+              <span>Get in Touch</span>
+            </a>
+            @if (data.contact.resume) {
+              <a [href]="data.contact.resume" class="btn-secondary" download>
+                <i class="pi pi-download"></i>
+                <span>Download Résumé</span>
+              </a>
+            }
+          </div>
+        </div>
       </div>
     }
   </section>

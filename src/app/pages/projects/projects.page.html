@@ -1,8 +1,59 @@
-<div class="container">
-  <h2 class="section-title">Projects</h2>
-  <div class="grid" style="gap:1.25rem; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
-    @for (p of (data$ | async)?.projects; track p.title) {
-    <app-project-card [project]="p" />
+@if (data$ | async; as data) {
+  <section class="container projects-page">
+    <div class="projects-header mb-5">
+      <div class="flex align-items-center justify-content-between flex-wrap gap-3 mb-3">
+        <div>
+          <h2 class="section-title mb-2">Projects</h2>
+          <p class="section-sub max-w-65ch">
+            A collection of projects I've built, showcasing my skills in modern web development.
+          </p>
+        </div>
+        <div class="project-count-badge">
+          <span class="count-number">{{ data.projects.length || 0 }}</span>
+          <span class="count-label">Projects</span>
+        </div>
+      </div>
+
+      <!-- Filter by Technology -->
+      @if (getAllTechnologies(data.projects).length > 0) {
+        <div class="project-filters mb-4">
+          <div class="flex align-items-center gap-2 flex-wrap">
+            <span class="filter-label">Filter by tech:</span>
+            <button
+              type="button"
+              class="filter-chip"
+              [class.active]="selectedFilter() === null"
+              (click)="selectedFilter.set(null)"
+            >
+              All
+            </button>
+            @for (tech of getAllTechnologies(data.projects); track tech) {
+              <button
+                type="button"
+                class="filter-chip"
+                [class.active]="selectedFilter() === tech"
+                (click)="selectedFilter.set(tech)"
+              >
+                {{ tech }}
+              </button>
+            }
+          </div>
+        </div>
+      }
+    </div>
+
+    @if (getFilteredProjects(data.projects).length > 0) {
+      <div class="projects-grid">
+        @for (p of getFilteredProjects(data.projects); track p.title) {
+          <app-project-card [project]="p" />
+        }
+      </div>
+    } @else {
+      <div class="empty-state">
+        <i class="pi pi-folder-open empty-icon"></i>
+        <h3>No projects found</h3>
+        <p>Try selecting a different technology filter.</p>
+      </div>
     }
-  </div>
-</div>
+  </section>
+}

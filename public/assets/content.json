@@ -28,12 +28,72 @@
       "level": "expert"
     },
     {
+      "name": "RxJS",
+      "level": "expert"
+    },
+    {
       "name": "Node.js",
+      "level": "expert"
+    },
+    {
+      "name": "Selenium",
       "level": "advanced"
     },
     {
-      "name": "RxJS",
+      "name": "Java",
       "level": "advanced"
+    },
+    {
+      "name": "Hibernate",
+      "level": "advanced"
+    },
+    {
+      "name": "JPA",
+      "level": "advanced"
+    },
+    {
+      "name": "Spring Boot",
+      "level": "advanced"
+    },
+    {
+      "name": "Docker",
+      "level": "intermediate"
+    },
+    {
+      "name": "Kubernetes",
+      "level": "intermediate"
+    },
+    {
+      "name": "MongoDB",
+      "level": "intermediate"
+    },
+    {
+      "name": "MySQL",
+      "level": "intermediate"
+    },
+    {
+      "name": "Grafana",
+      "level": "intermediate"
+    },
+    {
+      "name": "Git",
+      "level": "intermediate"
+    },
+    {
+      "name": "CI/CD",
+      "level": "intermediate"
+    },
+    {
+      "name": "Agile",
+      "level": "intermediate"
+    },
+    {
+      "name": "Scrum",
+      "level": "intermediate"
+    },
+    {
+      "name": "Jira",
+      "level": "intermediate"
     }
   ],
   "projects": [
@@ -100,14 +160,14 @@
   ],
   "about": {
     "headline": "I build performant, scalable web applications.",
-    "summary": "I'm a versatile Software Engineer skilled in both Angular and React ecosystems — particularly Angular 19 with PrimeNG and React with Next.js. My work centers on clean architecture, type safety, and delivering fast, accessible user interfaces powered by modern frameworks and reactive design patterns.",
+    "summary": "I’m an adaptable Software Engineer with expertise in the Angular and React ecosystems—particularly Angular 19 and React with Next.js. I focus on implementing clean architectural patterns, ensuring robust type safety, and developing high-performance, reusable user interfaces leveraging modern frameworks and reactive design principles.",
     "bullets": [
       "Frontend: Angular, Next.js, React, RxJS, PrimeNG, Tailwind, PrimeFlex",
-      "Backend: Spring Boot, Node.js, Express, REST APIs, MongoDB",
+      "Backend: Java, Spring Boot, Node.js, Express, REST APIs, MongoDB",
       "DevOps: Docker, GitHub Actions, Render / Vercel",
       "Practices: SOLID, Clean Architecture, CI/CD, Accessibility"
     ],
-    "closing": "I'm passionate about bridging design and engineering through component-driven development, mentoring developers, and optimizing performance across frameworks. I'm open to collaborations or full-time roles where scalable architecture and developer experience matter most."
+    "closing": "I’m passionate about aligning design intent with technical implementation to create scalable, user-focused applications through component-driven development, mentoring developers, and optimizing performance across modern frameworks. I’m open to collaborations or full-time roles that prioritize scalable architecture and exceptional developer experience."
   },
   "contact": {
     "email": "manuel.jesus.rodrguez.1086@gmail.com",

@@ -41,6 +41,10 @@ private startRotation() {
   }, 3000); // Change every 3 seconds
 }
 
+calculateYearsExperience(): number {
+  return 10;
+}
+
 ngChanges(changes: SimpleChanges) {
   console.log(changes);
 }
