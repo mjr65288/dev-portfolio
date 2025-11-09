@@ -3,6 +3,7 @@ import { Router, RouterLink, RouterOutlet, RouterLinkActive, NavigationEnd } fro
 import { MenuItem } from 'primeng/api';
 import { Menubar } from 'primeng/menubar';
 import { ContentService } from './services/content.service';
+import { ThemeService } from './services/theme.service';
 import { AsyncPipe, NgClass } from '@angular/common';
 import { Title, Meta } from '@angular/platform-browser';
 import { filter, takeUntil } from 'rxjs/operators';
@@ -19,9 +20,13 @@ export class AppComponent implements OnInit, OnDestroy {
   private title = inject(Title);
   private meta = inject(Meta);
   private router = inject(Router);
+  private themeService = inject(ThemeService);
   private destroy$ = new Subject<void>();
   data$ = this.contentService.load();
   currentRoute = signal<string>('');
+
+  // Expose theme for template
+  readonly theme = this.themeService.theme;
 
   items: MenuItem[] = [
     { label: 'Home', routerLink: '/', routerLinkActiveOptions: { exact: true }, icon: 'pi pi-home' },
@@ -48,6 +53,10 @@ export class AppComponent implements OnInit, OnDestroy {
       };
     });
   });
+
+  toggleTheme() {
+    this.themeService.toggleTheme();
+  }
 
 
   ngOnInit() {

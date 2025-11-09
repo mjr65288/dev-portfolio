@@ -9,16 +9,50 @@
 /* Global resets */
 * { box-sizing: border-box; }
 html, body { height: 100%; }
-body { margin: 0; font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; background: #0b1020; color: #e6e8ef; }
+body {
+  margin: 0;
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
 
 
-/* Color tokens */
-:root {
---bg: #0b1020; /* deep navy */
---text: #e6e8ef; /* off white */
---muted: #98a2b3; /* slate */
---brand: #6aa9ff; /* azure */
---card: #12172a; /* darker panel */
+/* Color tokens - Dark Theme (Default) */
+:root,
+:root.dark-theme {
+  --bg: #0b1020; /* deep navy */
+  --text: #e6e8ef; /* off white */
+  --muted: #98a2b3; /* slate */
+  --brand: #6aa9ff; /* azure */
+  --card: #12172a; /* darker panel */
+}
+
+/* Light Theme */
+:root.light-theme {
+  --bg: #ffffff; /* white */
+  --text: #1a1a1a; /* dark gray */
+  --muted: #666666; /* medium gray */
+  --brand: #0066cc; /* darker blue for better contrast */
+  --card: #f8f9fa; /* very light gray */
+}
+
+/* Smooth transitions for theme changes */
+body,
+.card,
+.p-menubar,
+.mobile-bottom-nav,
+.theme-toggle,
+.mobile-nav-item {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Ensure PrimeNG Menubar text is always visible */
+::ng-deep .p-menubar .p-menuitem-link .p-menuitem-text {
+  display: inline-block !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  color: var(--text, #e6e8ef) !important;
 }
 
 
@@ -26,8 +60,27 @@ body { margin: 0; font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto
 .section { padding: 3rem 0; }
 .section-title { font-size: clamp(1.5rem, 2vw + 1rem, 2.25rem); margin-bottom: 1rem; color: var(--text); }
 .section-sub { color: var(--muted); margin-bottom: 2rem; }
-.card { background: var(--card); border-radius: 16px; padding: 1.25rem; box-shadow: 0 10px 24px rgba(0,0,0,0.25); transition: transform 0.3s ease, box-shadow 0.3s ease; }
-.card:hover { transform: scale(1.02); box-shadow: 0 16px 32px rgba(0,0,0,0.35); }
+.card {
+  background: var(--card);
+  border-radius: 16px;
+  padding: 1.25rem;
+  box-shadow: 0 10px 24px rgba(0,0,0,0.25);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+:root.light-theme .card {
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  border: 1px solid rgba(0,0,0,0.05);
+}
+
+.card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 16px 32px rgba(0,0,0,0.35);
+}
+
+:root.light-theme .card:hover {
+  box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+}
 .project-card { cursor: pointer; }
 .link { color: var(--brand); text-decoration: none; }
 .link:hover { text-decoration: underline; }

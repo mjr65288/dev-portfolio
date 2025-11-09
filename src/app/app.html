@@ -1,16 +1,27 @@
 <nav class="navbar">
   <!-- Desktop Navigation -->
-  <p-menubar [model]="menuItems()" class="desktop-nav p-2" style="border: none; background: transparent;">
-    <ng-template pTemplate="start">
-      @if (data$ | async; as data) {
-        <a routerLink="/" class="link" style="font-weight:700; font-size: 1.1rem;">
-          &lt;{{ data.name.split(' ')[0] }}/&gt;
-        </a>
-      } @else {
-        <a routerLink="/" class="link" style="font-weight:700; font-size: 1.1rem;">Portfolio</a>
-      }
-    </ng-template>
-  </p-menubar>
+  <div class="desktop-nav-wrapper">
+    <p-menubar [model]="menuItems()" class="desktop-nav p-2" style="border: none; background: transparent;">
+      <ng-template pTemplate="start">
+        @if (data$ | async; as data) {
+          <a routerLink="/" class="link" style="font-weight:700; font-size: 1.1rem;">
+            &lt;{{ data.name.split(' ')[0] }}/&gt;
+          </a>
+        } @else {
+          <a routerLink="/" class="link" style="font-weight:700; font-size: 1.1rem;">Portfolio</a>
+        }
+      </ng-template>
+    </p-menubar>
+    <button
+      type="button"
+      class="theme-toggle"
+      (click)="toggleTheme()"
+      [attr.aria-label]="theme() === 'dark' ? 'Switch to light theme' : 'Switch to dark theme'"
+      title="{{ theme() === 'dark' ? 'Switch to light theme' : 'Switch to dark theme' }}"
+    >
+      <i class="pi" [ngClass]="theme() === 'dark' ? 'pi-sun' : 'pi-moon'"></i>
+    </button>
+  </div>
 
   <!-- Mobile Navigation Header -->
   <!-- <div class="mobile-nav-header">
@@ -36,6 +47,16 @@
         <span class="mobile-nav-label">{{ item.label }}</span>
       </a>
     }
+    <button
+      type="button"
+      class="mobile-nav-item mobile-theme-toggle"
+      (click)="toggleTheme()"
+      [attr.aria-label]="theme() === 'dark' ? 'Switch to light theme' : 'Switch to dark theme'"
+      title="{{ theme() === 'dark' ? 'Switch to light theme' : 'Switch to dark theme' }}"
+    >
+      <i class="pi" [ngClass]="theme() === 'dark' ? 'pi-sun' : 'pi-moon'"></i>
+      <span class="mobile-nav-label">Theme</span>
+    </button>
   </nav>
 </nav>
 <div class="app-content">

@@ -13,8 +13,50 @@
 }
 
 /* Desktop Navigation - Hidden on mobile */
+.desktop-nav-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0 1rem;
+}
+
 .desktop-nav {
   display: block;
+  flex: 1;
+}
+
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: var(--card, #12172a);
+  border: 1px solid rgba(152, 162, 179, 0.2);
+  border-radius: 8px;
+  color: var(--text, #e6e8ef);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  flex-shrink: 0;
+
+  i {
+    font-size: 1.1rem;
+  }
+
+  &:hover {
+    background: rgba(106, 169, 255, 0.1);
+    border-color: var(--brand, #6aa9ff);
+    color: var(--brand, #6aa9ff);
+    transform: scale(1.05);
+  }
+
+  &:focus {
+    outline: 2px solid var(--brand, #6aa9ff);
+    outline-offset: 2px;
+  }
 }
 
 /* Mobile Navigation Header - Hidden on desktop */
@@ -91,9 +133,24 @@
   }
 }
 
+.mobile-theme-toggle {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+
+  &:hover {
+    color: var(--brand, #6aa9ff);
+
+    i,
+    .mobile-nav-label {
+      color: var(--brand, #6aa9ff);
+    }
+  }
+}
+
 /* Responsive Breakpoints */
 @media (max-width: 767px) {
-  .desktop-nav {
+  .desktop-nav-wrapper {
     display: none !important;
   }
 
@@ -118,21 +175,63 @@
   }
 }
 
+
 /* Active menu item styling for desktop */
 ::ng-deep .p-menubar {
-  /* Increase menu item font size for better readability */
+  /* Ensure menu items are visible with proper colors */
   .p-menuitem-link {
     font-size: 1rem !important;
     font-weight: 500 !important;
     transition: color 0.2s ease;
     padding: 0.75rem 1rem !important;
+    color: var(--text, #e6e8ef) !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
 
     &:hover {
       color: #6aa9ff !important;
     }
 
+    .p-menuitem-icon {
+      margin-right: 0.5rem !important;
+    }
+
     .p-menuitem-text {
       font-size: 1rem !important;
+      color: var(--text, #e6e8ef) !important;
+      display: inline-block !important;
+      opacity: 1 !important;
+      visibility: visible !important;
+      width: auto !important;
+      height: auto !important;
+      overflow: visible !important;
+      text-overflow: clip !important;
+    }
+
+    a {
+      color: var(--text, #e6e8ef) !important;
+    }
+
+    /* Target all text elements inside menu items */
+    span:not(.p-menuitem-icon) {
+      color: var(--text, #e6e8ef) !important;
+      opacity: 1 !important;
+      visibility: visible !important;
+      display: inline-block !important;
+    }
+  }
+
+  /* Default menu item text color - ensure text is always visible */
+  .p-menuitem .p-menuitem-link {
+    color: var(--text, #e6e8ef) !important;
+
+    .p-menuitem-text,
+    span:not(.p-menuitem-icon) {
+      color: var(--text, #e6e8ef) !important;
+      opacity: 1 !important;
+      visibility: visible !important;
+      display: inline-block !important;
     }
   }
 
