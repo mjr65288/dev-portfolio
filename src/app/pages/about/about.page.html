@@ -64,9 +64,9 @@
       </a>
 
       @if (data.contact?.resume; as resumeUrl) {
-        <a [href]="$any(resumeUrl)" class="btn-secondary" download>
-          <i class="pi pi-download"></i>
-          <span>Download Résumé</span>
+        <a [href]="resumeUrl" class="btn-secondary" target="_blank" rel="noopener noreferrer">
+          <i class="pi pi-file-pdf"></i>
+          <span>View Résumé</span>
         </a>
       }
     </div>

@@ -44,17 +44,24 @@
         <div class="cta-content">
           <h3 class="mb-2">Interested in working together, or just saying hi?</h3>
           <p class="section-sub mb-4">Let's discuss how I can contribute to your team.</p>
-          <div class="flex gap-2 flex-wrap">
+          <div class="flex gap-2 flex-wrap justify-content-center">
             <a routerLink="/contact" class="btn-primary">
               <i class="pi pi-send"></i>
               <span>Get in Touch</span>
             </a>
-            @if (data.contact.resume) {
+            <!-- @if (data.contact.resume) {
               <a [href]="data.contact.resume" class="btn-secondary" download>
                 <i class="pi pi-download"></i>
                 <span>Download Résumé</span>
               </a>
-            }
+            } -->
+
+            <!-- @if (data.contact?.resume; as resumeUrl) {
+              <a [href]="resumeUrl" class="btn-secondary" target="_blank" rel="noopener noreferrer">
+                <i class="pi pi-file-pdf"></i>
+                <span>View Résumé</span>
+              </a>
+            } -->
           </div>
         </div>
       </div>

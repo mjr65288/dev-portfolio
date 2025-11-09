@@ -82,9 +82,17 @@
       <p class="section-sub mb-3" style="max-width: 600px; margin-left: auto; margin-right: auto;">
         Have a project in mind or want to collaborate? I'd love to hear from you.
       </p>
-      <a routerLink="/contact" class="view-all-btn">
-        Get in touch
-      </a>
+      <div class="flex gap-2 justify-content-center flex-wrap">
+        <a routerLink="/contact" class="view-all-btn">
+          Get in touch
+        </a>
+        <!-- @if (data.contact?.resume; as resumeUrl) {
+          <a [href]="resumeUrl" class="view-all-btn" target="_blank" rel="noopener noreferrer" style="background: var(--surface-100); color: var(--text-color);">
+            <i class="pi pi-file-pdf"></i>
+            <span>View Résumé</span>
+          </a>
+        } -->
+      </div>
     </div>
   </div>
   }
