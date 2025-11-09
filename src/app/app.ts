@@ -1,32 +1,69 @@
-import { Component, inject, OnInit } from '@angular/core';
-import { RouterLink, RouterOutlet } from '@angular/router';
+import { Component, inject, OnInit, OnDestroy, signal, computed } from '@angular/core';
+import { Router, RouterLink, RouterOutlet, RouterLinkActive, NavigationEnd } from '@angular/router';
 import { MenuItem } from 'primeng/api';
 import { Menubar } from 'primeng/menubar';
 import { ContentService } from './services/content.service';
-import { AsyncPipe } from '@angular/common';
+import { AsyncPipe, NgClass } from '@angular/common';
 import { Title, Meta } from '@angular/platform-browser';
+import { filter, takeUntil } from 'rxjs/operators';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, RouterLink, Menubar, AsyncPipe],
+  imports: [RouterOutlet, RouterLink, RouterLinkActive, Menubar, AsyncPipe, NgClass],
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, OnDestroy {
   private contentService = inject(ContentService);
   private title = inject(Title);
   private meta = inject(Meta);
+  private router = inject(Router);
+  private destroy$ = new Subject<void>();
   data$ = this.contentService.load();
+  currentRoute = signal<string>('');
 
   items: MenuItem[] = [
-    { label: 'Home', routerLink: '/' },
-    { label: 'Projects', routerLink: '/projects' },
-    { label: 'About', routerLink: '/about' },
-    { label: 'Experience', routerLink: '/experience' },
-    { label: 'Contact', routerLink: '/contact' },
+    { label: 'Home', routerLink: '/', routerLinkActiveOptions: { exact: true }, icon: 'pi pi-home' },
+    { label: 'Projects', routerLink: '/projects', icon: 'pi pi-folder-open' },
+    { label: 'About', routerLink: '/about', icon: 'pi pi-user' },
+    { label: 'Experience', routerLink: '/experience', icon: 'pi pi-briefcase' },
+    { label: 'Contact', routerLink: '/contact', icon: 'pi pi-envelope' },
   ];
 
+  // Computed items with active state
+  menuItems = computed(() => {
+    const currentUrl = this.currentRoute();
+    return this.items.map(item => {
+      if (!item.routerLink) return item;
+
+      const itemPath = item.routerLink === '/' ? '/' : `/${item.routerLink}`;
+      const isActive = item.routerLink === '/'
+        ? currentUrl === '/'
+        : currentUrl === itemPath || currentUrl.startsWith(`${itemPath}/`);
+
+      return {
+        ...item,
+        styleClass: isActive ? 'active-menu-item' : ''
+      };
+    });
+  });
+
+
   ngOnInit() {
+    // Set initial route
+    this.currentRoute.set(this.router.url);
+
+    // Listen to route changes
+    this.router.events
+      .pipe(
+        filter(event => event instanceof NavigationEnd),
+        takeUntil(this.destroy$)
+      )
+      .subscribe((event: NavigationEnd) => {
+        this.currentRoute.set(event.urlAfterRedirects);
+      });
+
     this.data$.subscribe(data => {
       // Set default page title
       this.title.setTitle(`${data.name} — ${data.role}`);
@@ -45,5 +82,10 @@ export class AppComponent implements OnInit {
       this.meta.updateTag({ name: 'twitter:title', content: `${data.name} — ${data.role}` });
       this.meta.updateTag({ name: 'twitter:description', content: data.about.summary });
     });
+  }
+
+  ngOnDestroy() {
+    this.destroy$.next();
+    this.destroy$.complete();
   }
 }
