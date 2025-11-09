@@ -348,6 +348,85 @@ body { margin: 0; font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto
   }
 }
 
+/* Skills Section */
+.skills-section {
+  margin-bottom: 3rem;
+}
+
+.skill-badge {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background: var(--card);
+  border: 1px solid rgba(152, 162, 179, 0.2);
+  border-radius: 20px;
+  font-size: 0.9rem;
+  color: var(--text);
+  transition: all 0.2s ease;
+
+  &[data-level="expert"] {
+    border-color: var(--brand);
+    background: rgba(106, 169, 255, 0.1);
+  }
+
+  &[data-level="advanced"] {
+    border-color: #10b981;
+    background: rgba(16, 185, 129, 0.1);
+  }
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+}
+
+/* Quick Links */
+.quick-links {
+  margin: 3rem 0;
+}
+
+.quick-link-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 2rem 1.5rem;
+  background: var(--card);
+  border-radius: 16px;
+  text-decoration: none;
+  color: var(--text);
+  transition: all 0.3s ease;
+  border: 1px solid rgba(152, 162, 179, 0.1);
+
+  i {
+    font-size: 2.5rem;
+    color: var(--brand);
+    margin-bottom: 1rem;
+    transition: transform 0.3s ease;
+  }
+
+  h3 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.25rem;
+    color: var(--text);
+  }
+
+  p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 0.9rem;
+  }
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+    border-color: var(--brand);
+
+    i {
+      transform: scale(1.1);
+    }
+  }
+}
+
 /* Responsive adjustments for contact form */
 @media (max-width: 767px) {
   .form-row {
@@ -366,5 +445,9 @@ body { margin: 0; font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto
   .contact-quick-action {
     flex: 1;
     justify-content: center;
+  }
+
+  .quick-link-card {
+    padding: 1.5rem 1rem;
   }
 }

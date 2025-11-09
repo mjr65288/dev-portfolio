@@ -1,15 +1,13 @@
 import { Component, inject, SimpleChanges, OnInit, OnDestroy } from '@angular/core';
-import { AsyncPipe, SlicePipe, NgClass } from '@angular/common';
+import { AsyncPipe, NgClass } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { ContentService } from '../../services/content.service';
-import { ProjectCardComponent } from '../../components/project-card/project-card.component';
-import { SectionHeaderComponent } from '../../components/section-header/section-header.component';
 
 
 @Component({
 standalone: true,
 selector: 'app-home',
-imports: [AsyncPipe, SlicePipe, NgClass, RouterLink, ProjectCardComponent, SectionHeaderComponent],
+imports: [AsyncPipe, NgClass, RouterLink],
 templateUrl: './home.page.html',
 })
 export class HomePage implements OnInit, OnDestroy {
