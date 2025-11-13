@@ -1,98 +1,49 @@
 @if (data$ | async; as data) {
-  <div class="container pt-8">
-    <header class="hero-header flex align-items-center justify-content-between mb-6 flex-column md:flex-row gap-3">
-      <div class="hero-content">
-        <h1 class="hero-title">Hi, I'm {{ data.name }}</h1>
-        <p class="hero-subtitle">
-          <span class="rotating-text" [attr.data-index]="currentPhraseIndex">{{ currentPhrase }}</span> ✦ {{ data.location }}
+  <!-- Full-Viewport Hero Section -->
+  <section class="hero-section">
+    <div class="hero-container">
+      <div class="hero-content-centered">
+        <h1 class="hero-title-large">
+          Hi, I'm <span class="hero-name-highlight">{{ data.name }}</span>
+        </h1>
+        <p class="hero-tagline">
+          {{ data.home?.tagline || 'Software Engineer passionate about building exceptional web experiences.' }}
         </p>
-        <p class="hero-description max-w-65ch mt-3">
-          {{ data.about.summary || 'Software Engineer passionate about building exceptional web experiences.' }}
-        </p>
-      </div>
-      <div class="flex gap-3 align-items-center hero-socials">
-        @for (s of data.socials; track s.url) {
-        <a class="social-link" [href]="s.url" target="_blank" rel="noopener" [attr.aria-label]="s.label">
-          <i class="pi" [ngClass]="s.icon"></i>
-          <span class="ml-2">{{ s.label }}</span>
-        </a>
-        }
-      </div>
-    </header>
-
-    <!-- Stats Section -->
-    <div class="stats-grid mb-6">
-      <div class="stat-card">
-        <div class="stat-number">{{ calculateYearsExperience() }}+</div>
-        <div class="stat-label">Years Experience</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-number">{{ data.projects.length || 0 }}</div>
-        <div class="stat-label">Personal Projects</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-number">{{ data.experience.length || 0 }}</div>
-        <div class="stat-label">Companies</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-number">{{ data.skills.length || 0 }}</div>
-        <div class="stat-label">Technologies</div>
-      </div>
-    </div>
-
-
-    <!-- Skills Highlight -->
-    @if (data.skills && data.skills.length > 0) {
-      <div class="skills-section mb-6">
-        <h2 class="section-title mb-3">Technologies I Work With</h2>
-        <div class="flex flex-wrap gap-2">
-          @for (skill of data.skills; track skill.name) {
-            <span class="skill-badge" [attr.data-level]="skill.level">
-              {{ skill.name }}
-            </span>
+        <!-- <div class="hero-actions">
+          <a routerLink="/projects" class="hero-cta-btn">
+            View My Projects
+          </a>
+        </div> -->
+        <!-- Social Links (Icon Only) -->
+        <div class="hero-socials-minimal">
+          @for (s of data.socials; track s.url) {
+            <a class="social-icon-link" [href]="s.url" target="_blank" rel="noopener" [attr.aria-label]="s.label">
+              <i class="pi" [ngClass]="s.icon"></i>
+            </a>
           }
         </div>
       </div>
-    }
-
-    <!-- Quick Links -->
-    <div class="quick-links mb-6">
-      <div class="grid" style="gap:1.5rem; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
-        <a routerLink="/projects" class="quick-link-card">
-          <i class="pi pi-folder-open"></i>
-          <h3>Projects</h3>
-          <p>View my work</p>
-        </a>
-        <a routerLink="/experience" class="quick-link-card">
-          <i class="pi pi-briefcase"></i>
-          <h3>Experience</h3>
-          <p>My background</p>
-        </a>
-        <a routerLink="/about" class="quick-link-card">
-          <i class="pi pi-user"></i>
-          <h3>About</h3>
-          <p>Learn more</p>
-        </a>
-      </div>
-    </div>
-
-    <!-- Contact CTA -->
-    <div class="contact-cta text-center mt-8 mb-4">
-      <h2 style="margin:0 0 1rem 0; font-size: 1.75rem;">Let's build something together</h2>
-      <p class="section-sub mb-3" style="max-width: 600px; margin-left: auto; margin-right: auto;">
-        Have a project in mind or want to collaborate? I'd love to hear from you.
-      </p>
-      <div class="flex gap-2 justify-content-center flex-wrap">
-        <a routerLink="/contact" class="view-all-btn">
-          Get in touch
-        </a>
-        <!-- @if (data.contact?.resume; as resumeUrl) {
-          <a [href]="resumeUrl" class="view-all-btn" target="_blank" rel="noopener noreferrer" style="background: var(--surface-100); color: var(--text-color);">
-            <i class="pi pi-file-pdf"></i>
-            <span>View Résumé</span>
+      <!-- <div class="scroll-indicator" (click)="scrollToContent()">
+        <span>Scroll</span>
+        <i class="pi pi-chevron-down"></i>
+      </div> -->
+      <!-- <div class="contact-cta text-center mt-8 mb-4">
+        <h2 style="margin:0 0 1rem 0; font-size: 1.75rem;">Let's build something together</h2>
+        <p class="section-sub mb-3" style="max-width: 600px; margin-left: auto; margin-right: auto;">
+          Have a project in mind or want to collaborate? I'd love to hear from you.
+        </p>
+        <div class="flex gap-2 justify-content-center flex-wrap">
+          <a routerLink="/contact" class="view-all-btn">
+            Get in touch
           </a>
-        } -->
-      </div>
+          <!-- @if (data.contact?.resume; as resumeUrl) {
+            <a [href]="resumeUrl" class="view-all-btn" target="_blank" rel="noopener noreferrer" style="background: var(--surface-100); color: var(--text-color);">
+              <i class="pi pi-file-pdf"></i>
+              <span>View Résumé</span>
+            </a>
+          }
+        </div>
+      </div> -->
     </div>
-  </div>
-  }
+  </section>
+}

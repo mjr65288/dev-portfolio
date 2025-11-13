@@ -11,28 +11,30 @@
   @if (data.about.bullets && data.about.bullets.length > 0) {
     <div class="skills-practices-grid mb-6">
       @for (bullet of data.about.bullets; track $index) {
-        <div class="skill-practice-card">
-          <div class="card-icon">
-            <i class="pi pi-check-circle"></i>
+        @if (getBulletTitle(bullet)) {
+          <div class="skill-practice-card">
+            <div class="card-icon">
+              <i [class]="getCategoryIcon(getBulletTitle(bullet))"></i>
+            </div>
+            <div class="card-content">
+              <h4 class="card-title">{{ getBulletTitle(bullet) }}</h4>
+              <p class="card-text">{{ getBulletText(bullet) }}</p>
+            </div>
           </div>
-          <div class="card-content">
-            <h4 class="card-title">{{ getBulletTitle(bullet) }}</h4>
-            <p class="card-text">{{ getBulletText(bullet) }}</p>
-          </div>
-        </div>
+        }
       }
     </div>
   }
 
   <!-- Closing Statement -->
-  @if (data.about.closing) {
+  <!-- @if (data.about.closing) {
     <div class="closing-statement mb-6">
       <div class="quote-mark">"</div>
       <p class="closing-text max-w-65ch">
         {{ data.about.closing }}
       </p>
     </div>
-  }
+  } -->
 
   <!-- Contact & Resume Section -->
   <div class="about-cta-section">

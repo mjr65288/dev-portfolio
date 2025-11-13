@@ -1,4 +1,4 @@
-<article class="flex gap-3">
+<article class="flex gap-3 timeline-item">
   <div style="width:10px; background: var(--brand); border-radius: 8px;"></div>
 
   <div class="w-full">
@@ -11,6 +11,11 @@
           {{ company }}
           }
         </h3>
+        @if (description) {
+          <p class="company-description" style="color: var(--muted); font-size: 0.9rem; margin: 0.25rem 0 0.5rem 0; font-style: italic;">
+            {{ description }}
+          </p>
+        }
         <small style="color:var(--muted)">
           {{ formatDate(start) }} – {{ end ? formatDate(end) : 'Present' }}
           @if (location) { • {{ location }} }
@@ -18,24 +23,53 @@
       </div>
     </header>
 
-    @if (tech && tech.length > 0) {
-    <div class="flex flex-wrap gap-2 mt-2">
-      @for (t of tech; track t) {
-      <p-tag [value]="t" severity="contrast"></p-tag>
-      }
-    </div>
+    @if (tech) {
+      <div class="mt-3">
+        <h4 class="section-label mb-2" style="color: var(--text); font-size: 0.95rem; font-weight: 600; margin: 0;">
+          Technologies:
+        </h4>
+        @if (isTechCategorized()) {
+          <!-- Categorized Tech Badges -->
+          <div class="tech-categorized">
+            @for (category of getTechCategories(); track category) {
+              <div class="tech-category-group mb-2">
+                <span class="tech-category-label" style="color: var(--muted); font-size: 0.85rem; font-weight: 600; margin-right: 0.5rem;">
+                  {{ category }}:
+                </span>
+                <div class="flex flex-wrap gap-2" style="display: inline-flex;">
+                  @for (t of getTechByCategory(category); track t) {
+                    <p-tag [value]="t" severity="contrast" style="font-size: 0.85rem;"></p-tag>
+                  }
+                </div>
+              </div>
+            }
+          </div>
+        } @else {
+          <!-- Flat Tech Badges (backward compatibility) -->
+          <div class="flex flex-wrap gap-2">
+            @for (t of getTechArray(); track t) {
+              <p-tag [value]="t" severity="contrast"></p-tag>
+            }
+          </div>
+        }
+      </div>
     }
 
     @if (bullets && bullets.length > 0) {
-    <ul class="list-none p-0 m-0 mt-3">
-      @for (b of bullets; track b) {
-      <li class="flex align-items-start gap-2 mb-2">
-        <i class="pi pi-circle-fill" style="font-size:.5rem; color: var(--brand); margin-top:.5rem"
-          aria-hidden="true"></i>
-        <span>{{ b }}</span>
-      </li>
-      }
-    </ul>
+      <div class="mt-4">
+        <h4 class="section-label mb-2" style="color: var(--text); font-size: 0.95rem; font-weight: 600; margin: 0;">
+          Key Contributions:
+        </h4>
+        <ul class="list-none p-0 m-0">
+          @for (b of bullets; track b) {
+            <li class="flex align-items-start gap-2 mb-2">
+              <i class="pi pi-circle-fill" style="font-size:.5rem; color: var(--brand); margin-top:.5rem"
+                aria-hidden="true"></i>
+              <span>{{ b }}</span>
+            </li>
+          }
+        </ul>
+      </div>
     }
   </div>
 </article>

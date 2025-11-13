@@ -19,9 +19,7 @@ export const appConfig: ApplicationConfig = {
     MessageService, // Provide MessageService at root level for Toast notifications
     providePrimeNG({
       theme: {
-        preset: Aura,
-        // optional: make dark mode toggleable with a class
-        // options: { darkModeSelector: '.app-dark' }
+        preset: Aura
       }
     })
   ]

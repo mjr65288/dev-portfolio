@@ -2,6 +2,9 @@
   "name": "Manuel Rodriguez",
   "role": "Software Engineer",
   "location": "Bakersfield, CA",
+  "home": {
+    "tagline": "I build fast, scalable front-end applications with Angular and React. Also experienced with Java and Spring Boot on the backend."
+  },
   "socials": [
     {
       "label": "GitHub",
@@ -10,7 +13,7 @@
     },
     {
       "label": "LinkedIn",
-      "url": "www.linkedin.com/in/manuel-jesus-rodriguez",
+      "url": "https://www.linkedin.com/in/manuel-jesus-rodriguez",
       "icon": "pi pi-linkedin"
     }
   ],
@@ -36,19 +39,7 @@
       "level": "expert"
     },
     {
-      "name": "Selenium",
-      "level": "advanced"
-    },
-    {
       "name": "Java",
-      "level": "advanced"
-    },
-    {
-      "name": "Hibernate",
-      "level": "advanced"
-    },
-    {
-      "name": "JPA",
       "level": "advanced"
     },
     {
@@ -56,54 +47,19 @@
       "level": "advanced"
     },
     {
-      "name": "Docker",
-      "level": "intermediate"
-    },
-    {
-      "name": "Kubernetes",
-      "level": "intermediate"
-    },
-    {
-      "name": "MongoDB",
-      "level": "intermediate"
-    },
-    {
-      "name": "MySQL",
-      "level": "intermediate"
-    },
-    {
-      "name": "Grafana",
-      "level": "intermediate"
-    },
-    {
-      "name": "Git",
-      "level": "intermediate"
-    },
-    {
-      "name": "CI/CD",
-      "level": "intermediate"
-    },
-    {
-      "name": "Agile",
-      "level": "intermediate"
-    },
-    {
-      "name": "Scrum",
-      "level": "intermediate"
-    },
-    {
-      "name": "Jira",
-      "level": "intermediate"
+      "name": "Hibernate",
+      "level": "advanced"
     }
   ],
   "projects": [
     {
       "title": "Portfolio Website",
-      "description": "My portfolio website built with Angular",
+      "description": "A modern, responsive portfolio website showcasing my work and experience. Built with Angular and PrimeNG for a polished, professional interface. Features dynamic content loading, smooth animations, and a fully responsive design that works seamlessly across all devices.",
       "tags": [
         "Angular",
         "RxJS",
-        "PrimeNG"
+        "PrimeNG",
+        "TypeScript"
       ],
       "repo": "https://github.com/mjr65288/portfolio",
       "demo": "https://manuel-rodriguez.netlify.app",
@@ -111,11 +67,12 @@
     },
     {
       "title": "RGR E-commerce",
-      "description": "E-commerce website with payments.",
+      "description": "A full-stack e-commerce platform with integrated payment processing. Built with Next.js for optimal performance and SEO, featuring Stripe integration for secure transactions. Includes product catalog, shopping cart, checkout flow, and order management capabilities.",
       "tags": [
         "Next.js",
         "Tailwind",
-        "Stripe"
+        "Stripe",
+        "TypeScript"
       ],
       "repo": "https://github.com/mjr65288/rgr-ecommerce",
       "demo": "https://rgr-ecommerce.vercel.app/",
@@ -130,15 +87,20 @@
       "end": "2025-10",
       "location": "Chatsworth, CA (Hybrid)",
       "url": "https://www.canogaperkins.net",
-      "tech": ["Next.js", "Angular", "RxJS", "Redux Toolkit", "Redux-Saga", "Spring Boot", "D3.js"],
+      "description": "Networking hardware manufacturer specializing in fiber platform solutions.",
+      "tech": {
+        "Frontend": ["Next.js", "Angular", "TypeScript", "RxJS", "Redux Toolkit", "Redux-Saga"],
+        "Backend": ["Spring Boot"],
+        "Visualization": ["D3.js"]
+      },
       "bullets": [
-        "Led the architecture and implementation of the new Network Management System (NMS) using Next.js and TypeScript.",
-        "Integrated Redux Toolkit for global state management and Redux-Saga to handle complex asynchronous workflows.",
-        "Developed backend REST APIs using Spring Boot to allow safe reset and preserve-reset operations for switch configurations.",
-        "Developed and maintained the company’s Angular-based NMS, improving modularity and overall maintainability.",
-        "Implemented a D3.js-powered visualizer to display virtual circuit metrics and topologies in real time.",
-        "Collaborated closely with backend engineers to optimize API contracts and improve system scalability.",
-        "Added an export feature enabling users to download network topology diagrams as PNG images for documentation and reporting."
+        "Led the architecture and development of a new Network Management System (NMS) using Next.js and TypeScript.",
+        "Built scalable state and async workflows by integrating Redux Toolkit and Redux-Saga across the NMS platform.",
+        "Developed Spring Boot REST APIs to support safe and preserve-reset operations for switch configuration management.",
+        "Refactored and enhanced the company's Angular-based NMS, improving modularity, maintainability, and long-term extensibility.",
+        "Designed and implemented a D3.js-based visualization engine for real-time virtual circuit metrics and topology layouts.",
+        "Collaborated closely with backend and firmware teams to optimize API contracts and improve overall system reliability.",
+        "Added a PNG export feature allowing users to download detailed network topology diagrams for documentation and reporting."
       ]
     },
     {
@@ -147,24 +109,33 @@
       "start": "2021-01",
       "end": "2023-04",
       "location": "Westlake Village, CA (Hybrid)",
-      "url": "hhttps://www.jdpower.com",
-      "tech": ["Angular", "Spring Boot", "Hibernate", "MicroStrategy", "Selenium", "TestNG", "Firebase"],
+      "url": "https://www.jdpower.com",
+      "description": "Global data analytics and consumer intelligence company.",
+      "tech": {
+        "Frontend": ["Angular"],
+        "Backend": ["Spring Boot", "Hibernate"],
+        "Business Intelligence": ["MicroStrategy"],
+        "Testing": ["Selenium", "TestNG"],
+        "Cloud": ["Firebase"]
+      },
       "bullets": [
-        "Developed and maintained enterprise web applications using Spring Boot and Angular.",
-        "Implemented RESTful APIs with JPA and Hibernate for secure, efficient data access.",
-        "Built custom MicroStrategy plugins and dashboards to extend internal analytics capabilities.",
-        "Integrated Firebase Cloud Messaging to deliver mobile push notifications across key products.",
-        "Automated UI and regression testing with Selenium and TestNG, reducing QA turnaround time by 40%."
+        "Developed and maintained enterprise web applications using Angular, Spring Boot, and Hibernate.",
+        "Built and documented RESTful APIs leveraging JPA and Hibernate for reliable, efficient data access.",
+        "Created custom MicroStrategy dashboards and plugins to extend internal analytics capabilities across the organization.",
+        "Integrated Firebase Cloud Messaging to enable mobile push notifications for multiple business products.",
+        "Automated UI and regression test suites with Selenium and TestNG, reducing QA turnaround time by over 40%."
       ]
     }
   ],
   "about": {
-    "headline": "I build performant, scalable web applications.",
-    "summary": "I’m an adaptable Software Engineer with expertise in the Angular and React ecosystems—particularly Angular 19 and React with Next.js. I focus on implementing clean architectural patterns, ensuring robust type safety, and developing high-performance, reusable user interfaces leveraging modern frameworks and reactive design principles.",
+    "headline": "About Me",
+    "summary": "I’m a front-end developer who loves working with Angular and React/Next.js. I enjoy building clean, fast, and modern interfaces, and I’m always exploring new tools and ideas. Most of my work lives in the front end, but I’ve also worked with backend services in Java, so I understand the full picture of how things fit together.",
     "bullets": [
-      "Frontend: Angular, Next.js, React, RxJS, PrimeNG, Tailwind, PrimeFlex",
-      "Backend: Java, Spring Boot, Node.js, Express, REST APIs, MongoDB",
-      "DevOps: Docker, GitHub Actions, Render / Vercel",
+      "Frontend: Angular, Next.js, React, TypeScript, RxJS, Redux Toolkit, Redux-Saga, PrimeNG, Tailwind, PrimeFlex, D3.js",
+      "Backend: Java, Spring Boot, Node.js, Express, Hibernate, JPA, REST APIs, MongoDB, Firebase",
+      "DevOps: Docker, GitHub Actions, Render, Vercel",
+      "Testing: Selenium, TestNG",
+      "Tools: MicroStrategy, Stripe",
       "Practices: SOLID, Clean Architecture, CI/CD, Accessibility"
     ],
     "closing": "I’m passionate about aligning design intent with technical implementation to create scalable, user-focused applications through component-driven development, mentoring developers, and optimizing performance across modern frameworks. I’m open to collaborations or full-time roles that prioritize scalable architecture and exceptional developer experience."
@@ -172,6 +143,6 @@
   "contact": {
     "email": "manuel.jesus.rodrguez.1086@gmail.com",
     "phone": "+1 (818) 582-0904",
-    "resume": "assets/Manuel_Rodriguez_React_Angular_Resume.pdf"
+    "resume": "assets/Manuel_Rodriguez_Resume_2025.pdf.pdf"
   }
 }

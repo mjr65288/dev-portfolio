@@ -5,11 +5,21 @@
 }
 
 .app-content {
+  overflow-x: hidden;
+  position: relative;
   min-height: calc(100vh - 60px);
 
   @media (max-width: 767px) {
     padding-bottom: 70px;
   }
+}
+
+body:has(.hero-section) {
+  overflow: hidden !important;
+}
+
+html:has(.hero-section) {
+  overflow: hidden !important;
 }
 
 /* Desktop Navigation - Hidden on mobile */
@@ -57,23 +67,6 @@
     outline: 2px solid var(--brand, #6aa9ff);
     outline-offset: 2px;
   }
-}
-
-/* Mobile Navigation Header - Hidden on desktop */
-.mobile-nav-header {
-  display: none;
-  align-items: center;
-  justify-content: center;
-  padding: 1rem 1.5rem;
-  background: var(--card, #12172a);
-  border-bottom: 1px solid rgba(152, 162, 179, 0.1);
-}
-
-.mobile-logo {
-  font-weight: 700;
-  font-size: 1.1rem;
-  text-decoration: none;
-  color: var(--brand, #6aa9ff);
 }
 
 /* Mobile Bottom Navigation Bar */
@@ -154,31 +147,23 @@
     display: none !important;
   }
 
-  .mobile-nav-header {
-    display: flex;
-  }
-
   .mobile-bottom-nav {
     display: flex;
   }
 
-  /* Add padding to container to account for bottom nav */
   .container {
     padding-bottom: 80px;
   }
 }
 
 @media (min-width: 768px) {
-  .mobile-nav-header,
   .mobile-bottom-nav {
     display: none !important;
   }
 }
 
 
-/* Active menu item styling for desktop */
 ::ng-deep .p-menubar {
-  /* Ensure menu items are visible with proper colors */
   .p-menuitem-link {
     font-size: 1rem !important;
     font-weight: 500 !important;
@@ -213,7 +198,6 @@
       color: var(--text, #e6e8ef) !important;
     }
 
-    /* Target all text elements inside menu items */
     span:not(.p-menuitem-icon) {
       color: var(--text, #e6e8ef) !important;
       opacity: 1 !important;
@@ -222,7 +206,6 @@
     }
   }
 
-  /* Default menu item text color - ensure text is always visible */
   .p-menuitem .p-menuitem-link {
     color: var(--text, #e6e8ef) !important;
 
@@ -235,7 +218,6 @@
     }
   }
 
-  /* Target items with active-menu-item class */
   .p-menuitem.active-menu-item,
   .p-menuitem[class*="active-menu-item"] {
     .p-menuitem-link {
@@ -261,7 +243,6 @@
     }
   }
 
-  /* Also target router-link-active for compatibility */
   .p-menuitem-link.router-link-active,
   a.router-link-active {
     color: #6aa9ff !important;

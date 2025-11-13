@@ -7,11 +7,6 @@ export const routes: Routes = [
     title: 'Home — Manuel Rodriguez'
   },
   {
-    path: 'projects',
-    loadComponent: () => import('./pages/projects/projects.page').then(m => m.ProjectsPage),
-    title: 'Projects — Manuel Rodriguez'
-  },
-  {
     path: 'about',
     loadComponent: () => import('./pages/about/about.page').then(m => m.AboutPage),
     title: 'About — Manuel Rodriguez'
@@ -20,6 +15,11 @@ export const routes: Routes = [
     path: 'experience',
     loadComponent: () => import('./pages/experience/experience.page').then(m => m.ExperiencePage),
     title: 'Experience — Manuel Rodriguez'
+  },
+  {
+    path: 'projects',
+    loadComponent: () => import('./pages/projects/projects.page').then(m => m.ProjectsPage),
+    title: 'Projects — Manuel Rodriguez'
   },
   {
     path: 'contact',

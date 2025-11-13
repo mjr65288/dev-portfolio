@@ -8,8 +8,12 @@ export interface ExperienceItem {
   end?: string;
   location?: string;
   url?: string;
-  tech?: string[];
+  description?: string;
+  tech?: string[] | { [category: string]: string[] };
   bullets: string[];
+}
+export interface Home {
+  tagline: string;
 }
 export interface About {
   headline: string;
@@ -28,6 +32,7 @@ export interface PortfolioContent {
   name: string;
   role: string;
   location?: string;
+  home?: Home;
   socials: SocialLink[];
   skills: Skill[];
   projects: Project[];

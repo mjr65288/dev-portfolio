@@ -31,9 +31,8 @@ export class ExperiencePage {
   }
 
   getTotalProjects(experience: ExperienceItem[] | undefined): number {
-    // Estimate based on experience - you can make this more accurate
     if (!experience) return 0;
-    return experience.length * 5; // Rough estimate: ~5 projects per role
+    return experience.length * 5;
   }
 }
 

@@ -16,13 +16,20 @@ import { Subject } from 'rxjs';
   styleUrl: './app.scss'
 })
 export class AppComponent implements OnInit, OnDestroy {
+  // Inject services the right way (new way instead of constructor)
   private contentService = inject(ContentService);
   private title = inject(Title);
   private meta = inject(Meta);
   private router = inject(Router);
   private themeService = inject(ThemeService);
+
+  // Keep a lightweight destroy$ subject to unsubscribe from observables
   private destroy$ = new Subject<void>();
-  data$ = this.contentService.load();
+
+  // Load content once and share it across subscribers
+  readonly data$ = this.contentService.load();
+
+  // Track current route
   currentRoute = signal<string>('');
 
   // Expose theme for template
@@ -30,9 +37,9 @@ export class AppComponent implements OnInit, OnDestroy {
 
   items: MenuItem[] = [
     { label: 'Home', routerLink: '/', routerLinkActiveOptions: { exact: true }, icon: 'pi pi-home' },
-    { label: 'Projects', routerLink: '/projects', icon: 'pi pi-folder-open' },
     { label: 'About', routerLink: '/about', icon: 'pi pi-user' },
     { label: 'Experience', routerLink: '/experience', icon: 'pi pi-briefcase' },
+    { label: 'Projects', routerLink: '/projects', icon: 'pi pi-folder-open' },
     { label: 'Contact', routerLink: '/contact', icon: 'pi pi-envelope' },
   ];
 
