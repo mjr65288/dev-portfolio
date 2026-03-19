@@ -3,7 +3,7 @@
   "role": "Software Engineer",
   "location": "Bakersfield, CA",
   "home": {
-    "tagline": "I build fast, scalable front-end applications with Angular and React. Also experienced with Java and Spring Boot on the backend."
+    "tagline": "I build scalable, high-performance front-end applications with React and Next.js, with additional experience in Angular. I specialize in real-time, data-driven systems and complex user interfaces, and have backend experience with Java and Spring Boot."
   },
   "socials": [
     {
@@ -18,6 +18,10 @@
     }
   ],
   "skills": [
+    {
+      "name": "React",
+      "level": "expert"
+    },
     {
       "name": "Next.js",
       "level": "expert"
@@ -54,7 +58,7 @@
   "projects": [
     {
       "title": "Portfolio Website",
-      "description": "A modern, responsive portfolio website showcasing my work and experience. Built with Angular and PrimeNG for a polished, professional interface. Features dynamic content loading, smooth animations, and a fully responsive design that works seamlessly across all devices.",
+      "description": "A modern, responsive portfolio built with Angular and PrimeNG, designed to deliver a polished and performant user experience. Features dynamic content rendering, smooth animations, and a fully responsive layout, with a focus on clean architecture and maintainability.",
       "tags": [
         "Angular",
         "RxJS",
@@ -67,9 +71,12 @@
     },
     {
       "title": "RGR E-commerce",
-      "description": "A full-stack e-commerce platform with integrated payment processing. Built with Next.js for optimal performance and SEO, featuring Stripe integration for secure transactions. Includes product catalog, shopping cart, checkout flow, and order management capabilities.",
+      "description": "A full-stack e-commerce platform built with Next.js, focused on performance, scalability, and seamless user experience. Implements secure Stripe payments, optimized rendering for SEO, and a robust product and order management system. Designed with a modern architecture to support real-world commerce workflows.",
       "tags": [
-        "Next.js",
+        "React 16",
+        "Next.js 13",
+        "Shadcn/UI",
+        "MongoDB",
         "Tailwind",
         "Stripe",
         "TypeScript"
@@ -77,72 +84,144 @@
       "repo": "https://github.com/mjr65288/rgr-ecommerce",
       "demo": "https://rgr-ecommerce.vercel.app/",
       "image": "assets/images/RGR-Desktop.png"
+    },
+    {
+      "title": "Job Tracker",
+      "description": "A full-stack job tracking application built with Next.js App Router and React, designed to manage and visualize job applications through an interactive Kanban interface. Implements server actions, optimistic UI updates, and secure authentication, delivering a smooth, real-time user experience.",
+      "tags": [
+        "React 19",
+        "Next.js 16",
+        "Shadcn/UI",
+        "Tailwind",
+        "MongoDB",
+        "better-auth",
+        "TypeScript"
+      ],
+      "repo": "https://github.com/mjr65288/job-application-tracker",
+      "demo": "https://job-application-tracker-six-amber.vercel.app",
+      "image": "assets/images/job-tracker.png"
     }
   ],
   "experience": [
     {
       "company": "Canoga Perkins",
       "role": "Software Engineer",
-      "start": "2023-05",
-      "end": "2025-10",
+      "start": "2022-04",
+      "end": "2026-03",
       "location": "Chatsworth, CA (Hybrid)",
       "url": "https://www.canogaperkins.net",
       "description": "Networking hardware manufacturer specializing in fiber platform solutions.",
       "tech": {
-        "Frontend": ["Next.js", "Angular", "TypeScript", "RxJS", "Redux Toolkit", "Redux-Saga"],
-        "Backend": ["Spring Boot"],
-        "Visualization": ["D3.js"]
+        "Frontend": [
+          "React 16",
+          "Next.js 13",
+          "Angular",
+          "TypeScript",
+          "RxJS",
+          "Redux Toolkit",
+          "Redux-Saga",
+          "TankStack Query",
+          "PrimeReact",
+          "Material UI",
+          "TailwindCSS"
+        ],
+        "Backend": [
+          "Spring Boot",
+          "Hibernate",
+          "JPA",
+          "REST APIs",
+          "MongoDB",
+          "gRPC",
+          "Netconf",
+          "Kafka",
+          "Microservices"
+        ],
+        "Visualization": [
+          "D3.js",
+          "ReactForceGraph"
+        ]
       },
       "bullets": [
-        "Led the architecture and development of a new Network Management System (NMS) using Next.js and TypeScript.",
-        "Built scalable state and async workflows by integrating Redux Toolkit and Redux-Saga across the NMS platform.",
-        "Developed Spring Boot REST APIs to support safe and preserve-reset operations for switch configuration management.",
-        "Refactored and enhanced the company's Angular-based NMS, improving modularity, maintainability, and long-term extensibility.",
-        "Designed and implemented a D3.js-based visualization engine for real-time virtual circuit metrics and topology layouts.",
-        "Collaborated closely with backend and firmware teams to optimize API contracts and improve overall system reliability.",
-        "Added a PNG export feature allowing users to download detailed network topology diagrams for documentation and reporting."
+        "Proposed and led the adoption of Next.js when the team transitioned from Angular to React, establishing a standardized project structure and development conventions for a 5-engineer frontend team.",
+        "Developed reusable UI components using PrimeReact and Material UI, styled with Tailwind CSS, to support configuration screens, tables, and form workflows, improving UI consistency and accelerating frontend development.",
+        "Built and maintained React/Next.js applications using modern build systems and module bundling, ensuring efficient development workflows and optimized frontend performance.",
+        "Identified duplicated API-fetching logic across multiple modules and introduced TanStack Query to standardize caching, loading states, and error handling, simplifying asynchronous state management across the application.",
+        "Implemented real-time UI synchronization by integrating Kafka service events with Redux-Saga middleware, enabling topology views, configuration screens, and data tables to automatically update as backend device state changes.",
+        "Developed an interactive network topology visualization using React Force Graph to display connectivity between switches and services, supporting graphs of approximately 50–100 network devices.",
+        "Extended existing Java Spring Boot microservices to detect device state changes and emit Kafka events consumed by the frontend, enabling event-driven updates across the platform.",
+        "Implemented centralized API exception handling using Spring ControllerAdvice, standardizing error responses across services and improving reliability of frontend integrations.",
+        "Debugged and deployed application fixes in Azure-hosted environments, supporting production stability for a network management platform running on containerized microservices."
       ]
     },
     {
       "company": "J.D. Power",
       "role": "Software Engineer",
-      "start": "2021-01",
-      "end": "2023-04",
+      "start": "2015-01",
+      "end": "2022-04",
       "location": "Westlake Village, CA (Hybrid)",
       "url": "https://www.jdpower.com",
       "description": "Global data analytics and consumer intelligence company.",
       "tech": {
-        "Frontend": ["Angular"],
-        "Backend": ["Spring Boot", "Hibernate"],
-        "Business Intelligence": ["MicroStrategy"],
-        "Testing": ["Selenium", "TestNG"],
-        "Cloud": ["Firebase"]
+        "Frontend": [
+          "Angularjs",
+          "Angular 12+",
+          "React 16",
+          "Reat Native",
+          "JavaScript (ES6+)",
+          "TypeScript",
+          "RxJS",
+          "Redux Toolkit",
+          "Material UI",
+          "bootstrap",
+          "jQuery",
+          "D3.js"
+        ],
+        "Backend": [
+          "Java",
+          "Spring Boot",
+          "Hibernate",
+          "JPA",
+          "REST APIs",
+          "Oracle Database",
+          "SQL"
+        ],
+        "Business Intelligence": [
+          "MicroStrategy"
+        ],
+        "Testing": [
+          "Selenium",
+          "TestNG"
+        ],
+        "Cloud": [
+          "Firebase Cloud Messaging"
+        ]
       },
       "bullets": [
-        "Developed and maintained enterprise web applications using Angular, Spring Boot, and Hibernate.",
-        "Built and documented RESTful APIs leveraging JPA and Hibernate for reliable, efficient data access.",
-        "Created custom MicroStrategy dashboards and plugins to extend internal analytics capabilities across the organization.",
-        "Integrated Firebase Cloud Messaging to enable mobile push notifications for multiple business products.",
-        "Automated UI and regression test suites with Selenium and TestNG, reducing QA turnaround time by over 40%."
+        "Developed and maintained an internal analytics platform used by business analysts to explore and report on consumer data, building UI components for data tables, filtering, and reporting workflows.",
+        "Contributed to the migration of a legacy AngularJS application to modern Angular, helping modernize the codebase and improve long term maintainability of the platform.",
+        "Developed backend services using Java and Spring Boot to support REST APIs and persist application data using JPA/Hibernate with an Oracle database.",
+        "Built a Spring Boot service to collect and analyze IP address metadata during user authentication, enabling reporting to identify potential credential sharing or suspicious access patterns.",
+        "Developed custom MicroStrategy plugins and authentication components to extend the analytics platform and integrate with backend services."
       ]
     }
   ],
   "about": {
     "headline": "About Me",
-    "summary": "I’m a front-end developer who loves working with Angular and React/Next.js. I enjoy building clean, fast, and modern interfaces, and I’m always exploring new tools and ideas. Most of my work lives in the front end, but I’ve also worked with backend services in Java, so I understand the full picture of how things fit together.",
+    "summary": "I’m a Senior Frontend / Full-Stack Engineer with 9+ years of experience building scalable, high-performance web applications using React, Next.js, and TypeScript. I specialize in creating data-driven user interfaces for complex systems, with a strong focus on real-time applications, performance optimization, and reusable component architecture. Much of my recent work has involved developing network management platforms that provide live analytics, topology visualization, and interactive workflows for enterprise users. I enjoy solving challenging problems and turning complex data and processes into intuitive, reliable user experiences. I also have backend experience working with Java and Spring Boot, allowing me to collaborate effectively across the full stack. I’m passionate about clean architecture, scalability, and continuously improving the quality and performance of the systems I build.",
     "bullets": [
-      "Frontend: Angular, Next.js, React, TypeScript, RxJS, Redux Toolkit, Redux-Saga, PrimeNG, Tailwind, PrimeFlex, D3.js",
-      "Backend: Java, Spring Boot, Node.js, Express, Hibernate, JPA, REST APIs, MongoDB, Firebase",
-      "DevOps: Docker, GitHub Actions, Render, Vercel",
+      "Frontend: React, Next.js, Angular, TypeScript, JavaScript (ES6+), RxJS, Redux Toolkit, Redux-Saga, TanStack Query, D3.js, PrimeReact, PrimeNG, PrimeFlex, Material UI, Tailwind CSS",
+      "Backend: Java, Spring Boot, Node.js, Express, REST APIs, Microservices, Hibernate, JPA, MongoDB, Firebase, Kafka",
+      "DevOps & Cloud: Docker, GitHub, Azure, Vercel",
       "Testing: Selenium, TestNG",
-      "Tools: MicroStrategy, Stripe",
-      "Practices: SOLID, Clean Architecture, CI/CD, Accessibility"
+      "Data Analytics: MicroStrategy",
+      "Tools & Libraries: Stripe, better-auth, NextAuth.js",
+      "Practices & Architecture: SOLID Principles, Clean Architecture, CI/CD, Accessibility (a11y), Performance Optimization"
     ],
-    "closing": "I’m passionate about aligning design intent with technical implementation to create scalable, user-focused applications through component-driven development, mentoring developers, and optimizing performance across modern frameworks. I’m open to collaborations or full-time roles that prioritize scalable architecture and exceptional developer experience."
+    "closing": "One quality that sets me apart is my curiosity and willingness to learn. I genuinely enjoy understanding how systems work, whether that’s a new technology, a complex problem in a project, or even improving how a team builds software. That curiosity usually pushes me to go deeper than just completing a task—I like to understand the reasoning behind design decisions and look for ways to improve things."
   },
   "contact": {
     "email": "manuel.jesus.rodrguez.1086@gmail.com",
     "phone": "+1 (818) 582-0904",
-    "resume": "assets/Manuel_Rodriguez_Resume_2025.pdf.pdf"
+    "resume": "assets/Manuel Rodriguez.pdf"
   }
 }
