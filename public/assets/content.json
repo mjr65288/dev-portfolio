@@ -100,6 +100,35 @@
       "repo": "https://github.com/mjr65288/job-application-tracker",
       "demo": "https://job-application-tracker-six-amber.vercel.app",
       "image": "assets/images/job-tracker.png"
+    },
+    {
+      "title": "Print-A-Pom Control Center",
+      "description": "A full-stack web application for controlling Print-A-Pom 3D printers via their REST API. Features a live machine status dashboard, manual XYZ jog controls, filament load/unload workflows, P-Code file printing with real-time progress, and an animated toolpath visualizer. A FastAPI backend orchestrates printer communication while a mock printer service enables testing without physical hardware.",
+      "tags": [
+        "Next.js 14",
+        "React 18",
+        "TypeScript",
+        "Tailwind",
+        "FastAPI",
+        "Python",
+        "Docker"
+      ],
+      "demo": "https://print-a-pom.vercel.app/",
+      "image": "assets/images/print-a-pom.png"
+    },
+    {
+      "title": "Systone Unit Converter",
+      "description": "A Java/Spring Boot application that grades student unit-conversion answers across temperature and volume categories. Exposes grading through three interaction layers — an interactive CLI, a REST API, and a Thymeleaf browser UI — all backed by a single shared use-case layer that centralizes validation and conversion logic. Includes Docker Compose for one-command local execution and a GitHub Actions CI pipeline with automatic deployment to Render.",
+      "tags": [
+        "Java 21",
+        "Spring Boot",
+        "Maven",
+        "Thymeleaf",
+        "Docker",
+        "GitHub Actions"
+      ],
+      "demo": "https://systone-unit-converter.onrender.com",
+      "image": "assets/images/systone-unit-converter.png"
     }
   ],
   "experience": [
